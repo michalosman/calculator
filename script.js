@@ -1,3 +1,8 @@
+let firstOperand = "";
+let secondOperand = "";
+let operator = null;
+let shouldResetScreen = false;
+
 const numberButtons = document.querySelectorAll("[data-number]");
 const operatorButtons = document.querySelectorAll("[data-operator]");
 const equalsButton = document.querySelector("[data-equals]");
@@ -6,10 +11,10 @@ const deleteButton = document.querySelector("[data-delete]");
 const pointButton = document.querySelector("[data-point]");
 const screen = document.querySelector("[data-screen]");
 
-let firstOperand = "";
-let secondOperand = "";
-let operator = null;
-let shouldResetScreen = false;
+equalsButton.addEventListener("click", evaluate);
+clearButton.addEventListener("click", clear);
+deleteButton.addEventListener("click", deleteNumber);
+pointButton.addEventListener("click", appendPoint);
 
 numberButtons.forEach((button) =>
   button.addEventListener("click", () => appendNumber(button.textContent))
@@ -19,53 +24,49 @@ operatorButtons.forEach((button) =>
   button.addEventListener("click", setOperator)
 );
 
-equalsButton.addEventListener("click", getScore);
-clearButton.addEventListener("click", clearScreen);
-deleteButton.addEventListener("click", deleteNumber);
-pointButton.addEventListener("click", setPoint);
-
 function appendNumber(number) {
-  if (screen.textContent === "0" || shouldResetScreen === true) resetScreen();
+  if (screen.textContent === "0" || shouldResetScreen) resetScreen();
   screen.textContent += number;
 }
 
-function setOperator(operatorButton) {
-  if (operator === null) {
-    firstOperand = screen.textContent;
-    operator = operatorButton.target.textContent;
-  } else {
-    operator = operatorButton.target.textContent;
-    getScore();
-  }
-  shouldResetScreen = true;
+function resetScreen() {
+  screen.textContent = "";
+  shouldResetScreen = false;
 }
 
-function getScore() {
-  secondOperand = screen.textContent;
-  firstOperand = operate(operator, firstOperand, secondOperand);
-  secondOperand = "";
-  screen.textContent = firstOperand;
-}
-
-function clearScreen() {
+function clear() {
   screen.textContent = "0";
   firstOperand = "";
   secondOperand = "";
   operator = null;
 }
 
-function resetScreen() {
-  {
-    screen.textContent = "";
-    shouldResetScreen = false;
+function appendPoint() {
+  if (shouldResetScreen) {
+    resetScreen();
+    screen.textContent = "0";
   }
+  if (screen.textContent.includes(".")) return;
+  screen.textContent += ".";
 }
 
-function deleteNumber() {}
+function deleteNumber() {
+  screen.textContent = screen.textContent.toString().slice(0, -1);
+}
 
-function setPoint() {
-  if (screen.textContent.includes(".") || screen.textContent === "") return;
-  screen.textContent += ".";
+function setOperator(operatorButton) {
+  if (operator !== null) evaluate();
+  firstOperand = screen.textContent;
+  operator = operatorButton.target.textContent;
+  shouldResetScreen = true;
+}
+
+function evaluate() {
+  if (operator === null || shouldResetScreen) return;
+  if (operator === "÷" && screen.textContent === "0") return;
+  secondOperand = screen.textContent;
+  screen.textContent = operate(operator, firstOperand, secondOperand);
+  operator = null;
 }
 
 function add(a, b) {
@@ -95,8 +96,9 @@ function operate(operator, a, b) {
     case "×":
       return multiply(a, b);
     case "÷":
-      return divide(a, b);
+      if (b === 0) return null;
+      else return divide(a, b);
     default:
-      return;
+      return null;
   }
 }
