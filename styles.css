@@ -23,21 +23,37 @@
   margin: 0;
 }
 
+html {
+  /* footer support */
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   background-color: var(--body);
   color: var(--font);
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 button {
   color: inherit;
 }
 
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  padding: 1rem;
+  /* footer support */
+  margin-bottom: 8rem;
+}
+
 .calculator {
-  max-width: 400px;
+  width: 400px;
   border: 2px var(--border) solid;
   border-radius: 15px;
-  margin: 30px auto;
+  margin: 0 auto;
   padding: 20px;
   background-color: var(--calculator);
 }
@@ -108,8 +124,32 @@ button {
 }
 
 /* Disables input spinners in calc screen */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  color: var(--font);
+  font-size: 1.6rem;
+}
+
+.fa-github {
+  margin-left: 1rem;
+  color: var(--font);
+  font-size: 2rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.fa-github:hover {
+  transform: rotate(90deg) scale(1.2);
 }
