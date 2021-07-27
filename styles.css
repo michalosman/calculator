@@ -1,5 +1,5 @@
 :root {
-  --body: #f6f6f6;
+  --background: #f6f6f6;
   --font: #222;
   --border: #333;
   --screen: #eee;
@@ -23,42 +23,69 @@
   margin: 0;
 }
 
+html {
+  font-family: 'Roboto', sans-serif;
+  font-size: 62.5%;
+  /* footer support */
+  position: relative;
+  min-height: 100%;
+}
+
 body {
-  background-color: var(--body);
+  background-color: var(--background);
   color: var(--font);
-  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
 }
 
 button {
   color: inherit;
 }
 
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  padding: 1rem;
+  /* footer support */
+  margin-bottom: 8rem;
+}
+
 .calculator {
-  max-width: 400px;
+  width: 40rem;
   border: 2px var(--border) solid;
   border-radius: 15px;
-  margin: 30px auto;
-  padding: 20px;
+  padding: 2rem;
   background-color: var(--calculator);
 }
 
 .screen {
-  min-height: 80px;
-  padding: 20px;
+  min-height: 12rem;
+  padding: 2rem;
   border: 2px var(--border) solid;
   border-radius: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
   background-color: var(--screen);
-  font-size: 29px;
   text-align: right;
   word-wrap: break-word;
   word-break: break-all;
 }
 
+.screen-last {
+  min-height: 3rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.screen-current {
+  min-height: 5rem;
+  font-size: 4rem;
+}
+
 .buttons-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
+  grid-gap: 1rem;
 }
 
 .span-2 {
@@ -66,11 +93,11 @@ button {
 }
 
 .btn {
-  padding: 20px;
+  padding: 2rem;
   border: 2px var(--border) solid;
   border-radius: 5px;
   background-color: var(--btn);
-  font-size: 20px;
+  font-size: 2rem;
   outline: none;
   cursor: pointer;
 }
@@ -108,8 +135,32 @@ button {
 }
 
 /* Disables input spinners in calc screen */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem;
+  color: var(--font);
+  font-size: 2.4rem;
+}
+
+.fa-github {
+  margin-left: 1rem;
+  color: var(--font);
+  font-size: 2.8rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.fa-github:hover {
+  transform: rotate(90deg) scale(1.2);
 }

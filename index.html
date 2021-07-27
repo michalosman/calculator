@@ -8,36 +8,63 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <script
+      src="https://kit.fontawesome.com/4c536a6bd5.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js" defer></script>
     <title>Calculator</title>
   </head>
   <body>
-    <div class="calculator">
-      <div class="screen" data-screen>0</div>
-      <div class="buttons-grid">
-        <button class="btn btn-red span-2" data-clear>CLEAR</button>
-        <button class="btn btn-blue span-2" data-delete>DELETE</button>
+    <main class="main">
+      <div class="calculator">
+        <div class="screen">
+          <div class="screen-last" id="lastOperationScreen"></div>
+          <div class="screen-current" id="currentOperationScreen">0</div>
+        </div>
+        <div class="buttons-grid">
+          <button
+            class="btn btn-red span-2"
+            id="clearBtn"
+            onclick="this.blur();"
+          >
+            CLEAR
+          </button>
+          <button
+            class="btn btn-blue span-2"
+            id="deleteBtn"
+            onclick="this.blur();"
+          >
+            DELETE
+          </button>
+          <button class="btn" onclick="this.blur();" data-number>7</button>
+          <button class="btn" onclick="this.blur();" data-number>8</button>
+          <button class="btn" onclick="this.blur();" data-number>9</button>
+          <button class="btn" onclick="this.blur();" data-operator>÷</button>
 
-        <button class="btn" data-number>7</button>
-        <button class="btn" data-number>8</button>
-        <button class="btn" data-number>9</button>
-        <button class="btn" data-operator>÷</button>
+          <button class="btn" onclick="this.blur();" data-number>4</button>
+          <button class="btn" onclick="this.blur();" data-number>5</button>
+          <button class="btn" onclick="this.blur();" data-number>6</button>
+          <button class="btn" onclick="this.blur();" data-operator>×</button>
 
-        <button class="btn" data-number>4</button>
-        <button class="btn" data-number>5</button>
-        <button class="btn" data-number>6</button>
-        <button class="btn" data-operator>×</button>
+          <button class="btn" onclick="this.blur();" data-number>1</button>
+          <button class="btn" onclick="this.blur();" data-number>2</button>
+          <button class="btn" onclick="this.blur();" data-number>3</button>
+          <button class="btn" onclick="this.blur();" data-operator>−</button>
 
-        <button class="btn" data-number>1</button>
-        <button class="btn" data-number>2</button>
-        <button class="btn" data-number>3</button>
-        <button class="btn" data-operator>−</button>
-
-        <button class="btn" data-point>.</button>
-        <button class="btn" data-number>0</button>
-        <button class="btn" data-equals>=</button>
-        <button class="btn" data-operator>+</button>
+          <button class="btn" onclick="this.blur();" id="pointBtn">.</button>
+          <button class="btn" onclick="this.blur();" data-number>0</button>
+          <button class="btn" onclick="this.blur();" id="equalsBtn">=</button>
+          <button class="btn" onclick="this.blur();" data-operator>+</button>
+        </div>
       </div>
-    </div>
+    </main>
+    <footer class="footer">
+      <p>Copyright © 2021 michalosman</p>
+      <a href="https://github.com/michalosman" target="_blank">
+        <i class="fab fa-github"></i
+      ></a>
+    </footer>
   </body>
 </html>
