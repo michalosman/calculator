@@ -164,3 +164,9 @@ input[type='number']::-webkit-outer-spin-button {
 .fa-github:hover {
   transform: rotate(360deg) scale(1.2);
 }
+
+@media (max-width: 550px) {
+  html {
+    font-size: 55%;
+  }
+}
