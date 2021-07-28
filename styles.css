@@ -24,8 +24,6 @@
 }
 
 html {
-  font-family: 'Roboto', sans-serif;
-  font-size: 62.5%;
   /* footer support */
   position: relative;
   min-height: 100%;
@@ -34,37 +32,44 @@ html {
 body {
   background-color: var(--background);
   color: var(--font);
-  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+  /* footer support */
+  margin-bottom: 150px;
 }
 
 button {
+  border: none;
   color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  outline: none;
 }
 
 .main {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 90vh;
-  padding: 1rem;
-  /* footer support */
-  margin-bottom: 8rem;
+  height: 80vh;
+  min-height: 500px;
+  padding: 10px;
+  margin-top: 50px;
 }
 
 .calculator {
-  width: 40rem;
+  width: 400px;
   border: 2px var(--border) solid;
   border-radius: 15px;
-  padding: 2rem;
+  padding: 20px;
   background-color: var(--calculator);
 }
 
 .screen {
-  min-height: 12rem;
-  padding: 2rem;
+  min-height: 120px;
+  padding: 20px;
   border: 2px var(--border) solid;
   border-radius: 5px;
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
   background-color: var(--screen);
   text-align: right;
   word-wrap: break-word;
@@ -72,20 +77,20 @@ button {
 }
 
 .screen-last {
-  min-height: 3rem;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  min-height: 30px;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .screen-current {
-  min-height: 5rem;
-  font-size: 4rem;
+  min-height: 50px;
+  font-size: 40px;
 }
 
 .buttons-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1rem;
+  grid-gap: 10px;
 }
 
 .span-2 {
@@ -93,13 +98,11 @@ button {
 }
 
 .btn {
-  padding: 2rem;
+  padding: 20px;
   border: 2px var(--border) solid;
   border-radius: 5px;
   background-color: var(--btn);
-  font-size: 2rem;
-  outline: none;
-  cursor: pointer;
+  font-size: 20px;
 }
 
 .btn:hover {
@@ -148,16 +151,15 @@ input[type='number']::-webkit-outer-spin-button {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   width: 100%;
-  padding: 2rem;
-  color: var(--font);
-  font-size: 2.4rem;
+  padding: 10px;
+  font-size: 22px;
 }
 
 .fa-github {
-  margin-left: 1rem;
   color: var(--font);
-  font-size: 2.8rem;
+  font-size: 26px;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -166,10 +168,6 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 @media (max-width: 550px) {
-  html {
-    font-size: 55%;
-  }
-  
   .main {
     height: 70vh;
   }
