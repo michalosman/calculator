@@ -33,6 +33,7 @@ body {
   background-color: var(--background);
   color: var(--font);
   font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
   /* footer support */
   margin-bottom: 150px;
 }
@@ -46,11 +47,13 @@ button {
   outline: none;
 }
 
+/* MAIN */
+
 .main {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80vh;
+  height: 75vh;
   min-height: 500px;
   padding: 10px;
   margin-top: 50px;
@@ -65,8 +68,7 @@ button {
 }
 
 .screen {
-  min-height: 120px;
-  padding: 20px;
+  padding: 10px 20px;
   border: 2px var(--border) solid;
   border-radius: 5px;
   margin-bottom: 20px;
@@ -77,13 +79,12 @@ button {
 }
 
 .screen-last {
-  min-height: 30px;
+  min-height: 32px;
   font-size: 20px;
-  margin-bottom: 10px;
 }
 
 .screen-current {
-  min-height: 50px;
+  min-height: 64px;
   font-size: 40px;
 }
 
@@ -144,6 +145,8 @@ input[type='number']::-webkit-outer-spin-button {
   margin: 0;
 }
 
+/* FOOTER */
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -154,21 +157,15 @@ input[type='number']::-webkit-outer-spin-button {
   gap: 10px;
   width: 100%;
   padding: 10px;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .fa-github {
   color: var(--font);
-  font-size: 26px;
+  font-size: 24px;
   transition: transform 0.3s ease-in-out;
 }
 
 .fa-github:hover {
   transform: rotate(360deg) scale(1.2);
-}
-
-@media (max-width: 550px) {
-  .main {
-    height: 70vh;
-  }
 }
